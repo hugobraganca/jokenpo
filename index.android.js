@@ -11,7 +11,10 @@ class jokenpo extends Component{
 
     constructor(props){
         super(props);
-        this.state = {escolhaUsuario : ''}
+        this.state = {  escolhaUsuario : '',
+                        escolhaComputador: '',
+                        resultado: ''
+                        }
     }
 
     pedraPapelTesoura(escolhaUsuario){
@@ -28,21 +31,27 @@ class jokenpo extends Component{
             case 1: escolhaComputador = 'papel'; break;
             case 2: escolhaComputador = 'tesoura'; break;
         }
-        if(escolhaComputador == pedra && escolhaUsuario == pedra){
-            resultado = 'empate';
-        }else if()
 
+        if(escolhaUsuario == escolhaComputador){
+            resultado = 'Empate';
+        }
+        if((escolhaComputador == 'pedra' && escolhaUsuario == 'tesoura') || (escolhaComputador == 'papel' && escolhaUsuario == 'pedra') ||
+            (escolhaComputador == 'tesoura' && escolhaUsuario == 'papel')){
+            resultado = 'você perdeu';
+        }
+        if( (escolhaUsuario == 'pedra' && escolhaComputador == 'tesoura') || (escolhaUsuario == 'papel' && escolhaComputador == 'pedra') ||
+        (escolhaUsuario == 'tesoura' && escolhaComputador == 'papel')){
+            resultado = 'Voce ganhou';
 
-        this.setState({escolhaUsuario : escolhaUsuario, escolhaComputador : escolhaComputador});
-
+        }
+        this.setState({escolhaUsuario : escolhaUsuario, escolhaComputador : escolhaComputador, resultado: resultado});
     }
-
   render(){
     return(
         <View>
             <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
             <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
-            <Text>Resultado</Text>
+            <Text>Resultado: {this.state.resultado}</Text>
             <Button title="pedra" onPress={ () => {this.pedraPapelTesoura('pedra')}}/>
             <Button title="papel" onPress={ () => {this.pedraPapelTesoura('papel')}}/>
             <Button title="tesoura" onPress={ () => {this.pedraPapelTesoura('tesoura')}}/>
