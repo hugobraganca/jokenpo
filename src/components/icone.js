@@ -1,37 +1,40 @@
 import React, { Component } from 'react';
 import { View, Text, Image,StyleSheet } from 'react-native';
 
+const imagemPedra = require('../../imgs/pedra.png');
+const imagemPapel = require('../../imgs/papel.png');
+const imagemTesoura = require('../../imgs/tesoura.png');
+
 class Icone extends Component{
     render(){
         //this.props.escolha
         //this.props.jogador
 
-        if(this.props.escolha == 'pedra'){
+        if (this.props.escolha === 'pedra') {
             return(
                 <View style={styles.icone}>
                     <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-                    <Image source = {require('../../imgs/pedra.png')}/>
+                    <Image source = {imagemPedra}/>
                 </View>
             );
-        }else if (this.props.escolha == 'papel'){
+        }else if (this.props.escolha === 'papel') {
             return(
                 <View style={styles.icone}>
                     <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-                    <Image source = {require('../../imgs/papel.png')}/>
-                </View>
-            );
-
-        }else if(this.props.escolha == 'tesoura'){
-            return(
-                <View style={styles.icone}>
-                    <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-                    <Image source = {require('../../imgs/tesoura.png')}/>
+                    <Image source = {imagemPapel}/>
                 </View>
             );
 
-        }else{
-            return false;
+        }else if (this.props.escolha === 'tesoura') {
+            return(
+                <View style={styles.icone}>
+                    <Text style={styles.txtJogador}>{this.props.jogador}</Text>
+                    <Image source = {imagemTesoura}/>
+                </View>
+            );
+
         }
+            return false;
     }
 }
 const styles = StyleSheet.create({
