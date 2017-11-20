@@ -40,7 +40,7 @@ class Icone extends Component{
 const styles = StyleSheet.create({
     icone: {
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
     },
     txtJogador: {
         fontSize: 18
